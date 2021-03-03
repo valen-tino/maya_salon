@@ -1,0 +1,107 @@
+@media screen and (min-width: 1200px) {
+  .depan {
+    height: 100%;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .illustration {
+    display: 75%;
+  }
+
+  .right {
+    display: none;
+  }
+  .depan {
+    height: 80%;
+    width: 80%;
+  }
+  .logopanjangsalon {
+    width: 75%;
+  }
+
+  .navbar {
+    position: relative;
+  }
+
+  .logo-2 {
+    position: absolute;
+    left: 20px;
+    top: 50px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .illustration {
+    display: none;
+  }
+
+  .depan {
+    height: 60%;
+    width: 60%;
+  }
+
+  .katalog {
+    height: 70%;
+    width: 100%;
+  }
+
+  .right {
+    display: none;
+  }
+
+  .logopanjangsalon {
+    width: 75%;
+  }
+
+  .column {
+    flex: 50%;
+    max-width: 50%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .column {
+    flex: 100%;
+    max-width: 100%;
+  }
+  .column img {
+    filter: grayscale(0) brightness(1);
+  }
+}
+
+@media (max-width: 575.98px) {
+  .card-kk {
+    width: 100%;
+  }
+
+  .left {
+    width: 100% !important;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .btn-firstpart {
+    width: 100% !important;
+    margin: 0 auto !important;
+    display: flex;
+    justify-content: center;
+  }
+
+  .depan {
+    height: 70%;
+    width: 100%;
+  }
+
+  .katalog {
+    height: 70%;
+    width: 100%;
+  }
+}
+
+@media (max-width: 990px) {
+  .card-kk {
+    margin-right: 50px;
+  }
+}

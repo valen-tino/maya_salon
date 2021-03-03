@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Maya Salon</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="./css/style.css?v<?php time() ?>">
+        <link rel="stylesheet" href="./css/responsive.css?">
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+        <link rel="shortcut icon" href="images/mayalogosmall.svg">
+        <script src="https://kit.fontawesome.com/a773405587.js" crossorigin="anonymous"></script>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Reem+Kufi&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        
+      </head>
+    <body>
+
+
+        <section id="firstpart">
+
+            <header>
+                <nav class="navbar navbar-expand-lg navbar-light fixed-top primary-nav" id="primary-nav" data-aos="fade-down">
+                   <div class="container">
+                   <a class="navbar-brand" href="index.php"><img src="./images/mayalogosmall.png" alt="logomayasalon" class="logo-1"></a>
+                   <a class="navbar-brand" href="index.php"><img src="./images/mayalogosmallwhite.svg" alt="logomayasalon" class="logo-2"></a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                    </button>
+                   
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                      <ul class="navbar-nav ml-auto">
+                        <li class="nav-item active">
+                          <a class="nav-link" href="index.php">Halaman Utama</span></a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="tentangkami.php">Tentang Kami</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="layanankami.php">Layanan Kami</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="galeri.php">Galeri</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="katalog.php">Katalog</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="hubungikami.php">Hubungi Kami</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="#" style="width: 85px;"><i class="fas fa-phone-alt"></i>&nbspCall Us</a>
+                          </li>
+                      </ul>
+                    </div>
+                   </div>
+                  </nav>    
+            </header>
+
+
+            
+
+        <div class="container">
+    <div class="row">
+        <div class="col">
+        <br><br><br><br><br><br>
+        <br>
+        </div>
+    </div>
+            <div class="row">
+                    <div class="col" align="center" data-aos="fade-down">
+                                <h1 style="margin-bottom:30px;">Error 404</h1>
+                                <h3 style="font-size:20px;">Halaman tujuan anda tidak terjangkau.</h3><br>
+                                <a class="tombol" href="index.php" style="margin-right:10px; margin-bottom:10px; margin-left:10px;"><i class="fas fa-house-user"></i>&nbspHalaman Utama</a><br>
+                                <?php include("includes/br.php"); ?>
+                        </div>
+                 </div>
+             </div>
+            
+
+        <div class="wave">
+            <img src="images/upperwave.svg" alt="wave" class="wave" style="margin-bottom: -10px;">
+        </div>
+        </section>
+
+        <section id="katalog">
+            <div class="container mt-2">
+                    <br>
+                    <div class="row">
+                        
+                    </div>
+            </div>
+            <br><br><br><br><br><br>
+        </section>
+
+        <section id="footer">
+
+        <img src="./images/wavefooter.svg" alt="" class="wave img-fluid">
+
+            <div class="container">
+                <div class="row">
+               
+                </div>
+                <div class="row">
+                <div class="col-sm" data-aos="fade-up">
+                        <img src="images/mayalogolong.svg" alt="logomayasalon" class="logopanjangsalon" style="margin-bottom:10px;">
+                    </div>
+                    <div class="col-sm" data-aos="fade-up">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Netus et malesuada fames ac turpis egestas integer eget aliquet. Sapien eget mi proin sed.</p>
+                    </div>
+                    
+                    <div class="col-sm" data-aos="fade-up">
+                        <div class="social-icons-box">
+                            <div class="social-icons-list">
+                                <ul>
+                                    <li><a href=""><i class="fab fa-instagram"></i></a></li>
+                                    <li><a href=""><i class="fab fa-whatsapp"></i></a></li>
+                                    <li><a href=""><i class="fas fa-map-marked-alt"></i></a></li>
+                                    <li><a href=""><i class="far fa-envelope"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col" data-aos="fade-up">
+                    <ul class="nav justify-content-center">
+                        <li class="nav-item">
+                          <a class="nav-link active" href="index.php">Halaman Utama</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="tentangkami.php">Tentang Kami</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="layanankami.php">Layanan Kami</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="galeri.php">Galeri Kami</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="katalog.php">Katalog</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="hubungikami.php">Hubungi Kami</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Terms & Conditions</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="login.php">Login</a>
+                        </li>
+                      </ul>
+                    </div>
+                </div><br>
+                <div class="row">
+                    <div class="col" >
+                        <h6 align="center">Made By Valentino Y. Jehaut &copy; <script>document.write(new Date().getFullYear())</script></h6>
+                    </div>
+                </div>
+                <div class="row">
+                  <div class="col" >
+                      <button type="button" class="btn-theme light" name="button">Dark Mode</button>
+                  </div>
+              </div>  
+            </div>
+        </section>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <script src="./includes/darkmode.js"></script>
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <!-- Fixed Navbar -->
+        <script>
+        AOS.init();
+        </script>
+        <script>
+             $(document).on("scroll", function(){
+
+            if ($(document).scrollTop() > 60){
+                $(".primary-nav").addClass("shrink");
+            } else {
+                $(".primary-nav").removeClass("shrink");
+            }
+
+      });
+    </script>
+    </body>
+</html>
