@@ -77,10 +77,10 @@ if ($_SESSION['status'] != "login") {
                                 </div>
                                 <div class="form-group">
                                     <label for="gambar" class="col-form-label">Gambar</label>
-                                    <input type="file" name="upload_gambar_edit_tk" id="upload_gambar_edit_tk" class="form-control" required value="<?php echo $d['jabatan'] ?>">
+                                    <input type="file" name="upload_gambar_edit_tk" id="upload_gambar_edit_tk" class="form-control">
                                 </div>
                                 <div class=" modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <input type="reset" class="btn btn-secondary" value="Reset" href="tentangkami.php" data-dismiss="modal">
                                     <input type="submit" value="Edit Data" name="tk_updatebtn" class="btn btn-primary">
                                 </div>
                             </form>

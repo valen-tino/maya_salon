@@ -1,4 +1,5 @@
 <?php
+include 'koneksi.php';
 session_start();
 if ($_SESSION['status'] != "login") {
     header("location:../index.php?pesan=belum_login");
@@ -16,7 +17,7 @@ if ($_SESSION['status'] != "login") {
     <div class="page-breadcrumb">
         <div class="row">
             <div class="col-5 align-self-center">
-                <h5 class="page-title">Tambah Info Kartu Staf</h5>
+                <h5 class="page-title">Edit Layanan</h5>
             </div>
             <div class="col-7 align-self-center">
                 <div class="d-flex align-items-center justify-content-end">
@@ -25,7 +26,7 @@ if ($_SESSION['status'] != "login") {
                             <li class="breadcrumb-item">
                                 <a href="#">Home</a>
                             </li>
-                            <li class="breadcrumb-item active" aria-current="page">Tambah Staf</li>
+                            <li class="breadcrumb-item active" aria-current="page">Edit Layanan</li>
                         </ol>
                     </nav>
                 </div>
@@ -42,31 +43,43 @@ if ($_SESSION['status'] != "login") {
         <!-- ============================================================== -->
         <!-- Start Page Content -->
         <!-- ============================================================== -->
-        <div class="row">
-            <div class="col-12">
-                <div class="card card-body">
-                    <h4 class="card-title">Masukkan Data Staf</h4>
-                    <form class="form-horizontal mt-4" action="process/code.php" method="post" enctype="multipart/form-data">
-                        <div class="form-group">
-                            <label for="username" class="col-form-label">Nama</label>
-                            <input type="text" name="nama_tk" class="form-control">
+
+
+        <?php
+        if (isset($_POST['editly_btn'])) {
+            $id = $_POST['editly_id'];
+
+            $query = "SELECT * FROM layanan WHERE id='$id' ";
+            $query_run = mysqli_query($con, $query);
+
+            foreach ($query_run as $d) { ?>
+                <div class="row">
+                    <div class="col-md">
+                        <div class="card card-body">
+                            <h4 class="card-title">Edit Kartu Layanan</h4>
+                            <form class="form-horizontal mt-4" action="process/code.php" method="post">
+                                <div class="form-group">
+                                    <input type="hidden" name="id" value="<?php echo $d['id'] ?>">
+                                    <label for="nama_edit_ly" class="col-form-label">Judul Layanan</label>
+                                    <input type="text" name="nama_edit_ly" class="form-control" value="<?php echo $d['judul'] ?>">
+                                </div>
+                                <div class="form-group">
+                                    <label for="jabatan_edit_ly" class="col-form-label">Deskripsi</label>
+                                    <textarea type="text" name="jabatan_edit_ly" class="form-control" rows="10"><?php echo $d['details'] ?></textarea>
+                                </div>
+                                <div class="modal-footer">
+                                    <input type="reset" class="btn btn-secondary" value="Reset" href="layanankami.php" data-dismiss="modal">
+                                    <input type="submit" value="Tambah Data" name="editdataly" class="btn btn-primary">
+                                </div>
+                            </form>
+
                         </div>
-                        <div class="form-group">
-                            <label for="username" class="col-form-label">Jabatan</label>
-                            <input type="text" name="jabatan_tk" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label for="gambar" class="col-form-label">Gambar</label>
-                            <input type="file" name="upload_gambar_tk" id="upload_gambar_tk" class="form-control" required>
-                        </div>
-                        <div class="modal-footer">
-                            <input type="reset" class="btn btn-secondary" value="Reset" href="tentangkami.php" data-dismiss="modal">
-                            <input type="submit" value="Tambah Data" name="tambahdatatk" class="btn btn-primary">
-                        </div>
-                    </form>
+                    </div>
                 </div>
-            </div>
-        </div>
+        <?php
+            }
+        }
+        ?>
         <!-- ============================================================== -->
         <!-- End PAge Content -->
         <!-- ============================================================== -->

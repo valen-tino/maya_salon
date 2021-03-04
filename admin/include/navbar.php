@@ -20,7 +20,7 @@
                      </a>
                  </li>
                  <li class="sidebar-item">
-                     <a class="sidebar-link waves-effect waves-dark sidebar-link" href="tabel.php" aria-expanded="false">
+                     <a class="sidebar-link waves-effect waves-dark sidebar-link" href="layanankami.php" aria-expanded="false">
                          <i class="mdi mdi-table"></i>
                          <span class="hide-menu">Layanan Kami</span>
                      </a>

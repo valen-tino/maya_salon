@@ -92,8 +92,8 @@ if ($_SESSION['status'] != "login") {
                                             <button type="submit" name="edit_btn" class="btn btn-warning"> EDIT</button>
                                         </form>
                                         <form action="process/code.php" method="post">
-                                            <input type="hidden" name="delete_id" value="<?php echo $d['id']; ?>">
-                                            <button type="submit" name="delete_btn" class="btn btn-danger"> DELETE</button>
+                                            <input type="hidden" name="delete_tk_id" value="<?php echo $d['id']; ?>">
+                                            <button type="submit" name="delete_tk_btn" class="btn btn-danger" style="color:white;"> DELETE</button>
                                         </form>
                                     </td>
                                 </tr>

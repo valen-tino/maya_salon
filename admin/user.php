@@ -93,7 +93,7 @@ if ($_SESSION['status'] != "login") {
                                         </form>
                                         <form action="process/code.php" method="post">
                                             <input type="hidden" name="delete_id" value="<?php echo $d['id']; ?>">
-                                            <button type="submit" name="delete_btn" class="btn btn-danger"> DELETE</button>
+                                            <button type="submit" name="delete_btn" class="btn btn-danger" style="color:white;"> DELETE</button>
                                         </form>
                                     </td>
                                 </tr>

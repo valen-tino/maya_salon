@@ -59,7 +59,7 @@ if ($_SESSION['status'] != "login") {
             </div>
         </div>
         <div class="row">
-            <div class="col-6">
+            <div class="col-4">
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title mb-1">Total Staf</h5><br>
@@ -77,7 +77,24 @@ if ($_SESSION['status'] != "login") {
                     </div>
                 </div>
             </div>
-            <div class="col-6">
+            <div class="col-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title mb-1">Total Layanan</h5><br>
+                        <?php
+                        include 'koneksi.php';
+                        $data_ly = mysqli_query($con, "SELECT * FROM layanan");
+                        // menghitung data barang
+                        $totally = mysqli_num_rows($data_ly);
+                        ?>
+                        <h3 class="font-light"><?php echo $totally; ?></h3>
+                        <div class="mt-3 text-center">
+                            <div id="earnings"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title mb-1">Total User</h5><br>

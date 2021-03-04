@@ -16,7 +16,7 @@ if ($_SESSION['status'] != "login") {
     <div class="page-breadcrumb">
         <div class="row">
             <div class="col-5 align-self-center">
-                <h5 class="page-title">Tambah Info Kartu Staf</h5>
+                <h5 class="page-title">Tambah Info Kartu Layanan</h5>
             </div>
             <div class="col-7 align-self-center">
                 <div class="d-flex align-items-center justify-content-end">
@@ -25,7 +25,7 @@ if ($_SESSION['status'] != "login") {
                             <li class="breadcrumb-item">
                                 <a href="#">Home</a>
                             </li>
-                            <li class="breadcrumb-item active" aria-current="page">Tambah Staf</li>
+                            <li class="breadcrumb-item active" aria-current="page">Tambah Layanan</li>
                         </ol>
                     </nav>
                 </div>
@@ -45,23 +45,19 @@ if ($_SESSION['status'] != "login") {
         <div class="row">
             <div class="col-12">
                 <div class="card card-body">
-                    <h4 class="card-title">Masukkan Data Staf</h4>
+                    <h4 class="card-title">Masukkan Data Layanan</h4>
                     <form class="form-horizontal mt-4" action="process/code.php" method="post" enctype="multipart/form-data">
                         <div class="form-group">
-                            <label for="username" class="col-form-label">Nama</label>
-                            <input type="text" name="nama_tk" class="form-control">
+                            <label for="username" class="col-form-label">Judul Layanan</label>
+                            <input type="text" name="nama_ly" class="form-control">
                         </div>
                         <div class="form-group">
-                            <label for="username" class="col-form-label">Jabatan</label>
-                            <input type="text" name="jabatan_tk" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label for="gambar" class="col-form-label">Gambar</label>
-                            <input type="file" name="upload_gambar_tk" id="upload_gambar_tk" class="form-control" required>
+                            <label for="username" class="col-form-label">Deskripsi</label>
+                            <textarea type="text" name="jabatan_ly" class="form-control" rows="10"></textarea>
                         </div>
                         <div class="modal-footer">
-                            <input type="reset" class="btn btn-secondary" value="Reset" href="tentangkami.php" data-dismiss="modal">
-                            <input type="submit" value="Tambah Data" name="tambahdatatk" class="btn btn-primary">
+                            <input type="reset" class="btn btn-secondary" value="Reset" href="layanankami.php" data-dismiss="modal">
+                            <input type="submit" value="Tambah Data" name="tambahdataly" class="btn btn-primary">
                         </div>
                     </form>
                 </div>

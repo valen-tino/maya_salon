@@ -6,6 +6,7 @@ if ($_SESSION['status'] != "login") {
 ?>
 <?php include "include/header.php"; ?>
 <?php include "include/navbar.php"; ?>
+
 <!-- ============================================================== -->
 <!-- Page wrapper  -->
 <!-- ============================================================== -->
@@ -16,7 +17,7 @@ if ($_SESSION['status'] != "login") {
     <div class="page-breadcrumb">
         <div class="row">
             <div class="col-5 align-self-center">
-                <h5 class="page-title">Tambah Info Kartu Staf</h5>
+                <h4 class="page-title">Layanan Kami</h4>
             </div>
             <div class="col-7 align-self-center">
                 <div class="d-flex align-items-center justify-content-end">
@@ -25,11 +26,14 @@ if ($_SESSION['status'] != "login") {
                             <li class="breadcrumb-item">
                                 <a href="#">Home</a>
                             </li>
-                            <li class="breadcrumb-item active" aria-current="page">Tambah Staf</li>
+                            <li class="breadcrumb-item active" aria-current="page">Layanan Kami</li>
                         </ol>
                     </nav>
                 </div>
             </div>
+        </div>
+        <div class="row">
+
         </div>
     </div>
     <!-- ============================================================== -->
@@ -44,26 +48,58 @@ if ($_SESSION['status'] != "login") {
         <!-- ============================================================== -->
         <div class="row">
             <div class="col-12">
-                <div class="card card-body">
-                    <h4 class="card-title">Masukkan Data Staf</h4>
-                    <form class="form-horizontal mt-4" action="process/code.php" method="post" enctype="multipart/form-data">
-                        <div class="form-group">
-                            <label for="username" class="col-form-label">Nama</label>
-                            <input type="text" name="nama_tk" class="form-control">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="col-sm-12 d-flex align-items- justify-content-end">
+                            <a role="button" class="btn btn-primary" href="layananadd.php "> + Tambah Data Baru</a>
                         </div>
-                        <div class="form-group">
-                            <label for="username" class="col-form-label">Jabatan</label>
-                            <input type="text" name="jabatan_tk" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label for="gambar" class="col-form-label">Gambar</label>
-                            <input type="file" name="upload_gambar_tk" id="upload_gambar_tk" class="form-control" required>
-                        </div>
-                        <div class="modal-footer">
-                            <input type="reset" class="btn btn-secondary" value="Reset" href="tentangkami.php" data-dismiss="modal">
-                            <input type="submit" value="Tambah Data" name="tambahdatatk" class="btn btn-primary">
-                        </div>
-                    </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class=" col-12">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Layanan-layanan</h4>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th scope="col">Id</th>
+                                <th scope="col">Judul</th>
+                                <th scope="col">Details</th>
+                                <th scope="col">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            include 'koneksi.php';
+                            $nomor = 1;
+                            $data = mysqli_query($con, "select * from layanan");
+                            while ($d = mysqli_fetch_array($data)) {
+                            ?>
+
+                                <tr>
+                                    <td> <?php echo $nomor++; ?></td>
+                                    <td> <?php echo $d['judul']; ?></td>
+                                    <td> <?php echo $d['details']; ?></td>
+                                    <td>
+                                        <form action="layananedit.php" method="post">
+                                            <input type="hidden" name="editly_id" value="<?php echo $d['id']; ?>">
+                                            <button type="submit" name="editly_btn" class="btn btn-warning"> EDIT</button>
+                                        </form>
+                                        <form action="process/code.php" method="post">
+                                            <input type="hidden" name="deletely_id" value="<?php echo $d['id']; ?>">
+                                            <button type="submit" name="deletely_btn" class="btn btn-danger" style="color:white;"> DELETE</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            <?php
+                            }
+                            ?>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
