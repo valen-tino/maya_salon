@@ -7,6 +7,8 @@ if ($_SESSION['status'] != "login") {
 <?php include "include/header.php"; ?>
 <?php include "include/navbar.php"; ?>
 
+
+
 <!-- ============================================================== -->
 <!-- Page wrapper  -->
 <!-- ============================================================== -->
@@ -17,7 +19,7 @@ if ($_SESSION['status'] != "login") {
     <div class="page-breadcrumb">
         <div class="row">
             <div class="col-5 align-self-center">
-                <h5 class="page-title">Halaman Utama</h5>
+                <h4 class="page-title">Users</h4>
             </div>
             <div class="col-7 align-self-center">
                 <div class="d-flex align-items-center justify-content-end">
@@ -26,11 +28,14 @@ if ($_SESSION['status'] != "login") {
                             <li class="breadcrumb-item">
                                 <a href="#">Home</a>
                             </li>
-                            <li class="breadcrumb-item active" aria-current="page">Halaman Utama</li>
+                            <li class="breadcrumb-item active" aria-current="page">Users</li>
                         </ol>
                     </nav>
                 </div>
             </div>
+        </div>
+        <div class="row">
+
         </div>
     </div>
     <!-- ============================================================== -->
@@ -45,53 +50,58 @@ if ($_SESSION['status'] != "login") {
         <!-- ============================================================== -->
         <div class="row">
             <div class="col-12">
-                <h1>Selamat Datang, <?php echo $_SESSION['username']; ?>!</h1>
-            </div>
-        </div>
-        <br>
-        <div class="row">
-            <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <h3 class="font-light" id="time"></h3>
+                        <div class="col-sm-12 d-flex align-items- justify-content-end">
+                            <a role="button" class="btn btn-primary" href="usersadd.php"> + Tambah Data Baru</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-6">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title mb-1">Total Staf</h5><br>
-                        <?php
-                        include 'koneksi.php';
-                        $datatk = mysqli_query($con, "SELECT * FROM tentangkami");
+        <div class=" col-12">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Data Rekapan</h4>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th scope="col">id</th>
+                                <th scope="col">Username</th>
+                                <th scope="col">Password</th>
+                                <th scope="col">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            include 'koneksi.php';
+                            $nomor = 1;
+                            $data = mysqli_query($con, "select * from user");
+                            while ($d = mysqli_fetch_array($data)) {
+                            ?>
 
-                        // menghitung data barang
-                        $totaltk = mysqli_num_rows($datatk);
-                        ?>
-                        <h3 class="font-light"><?php echo $totaltk; ?></h3>
-                        <div class="mt-3 text-center">
-                            <div id="earnings"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-6">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title mb-1">Total User</h5><br>
-                        <?php
-                        include 'koneksi.php';
-                        $data_barang = mysqli_query($con, "SELECT * FROM user");
-                        // menghitung data barang
-                        $totaluser = mysqli_num_rows($data_barang);
-                        ?>
-                        <h3 class="font-light"><?php echo $totaluser; ?></h3>
-                        <div class="mt-3 text-center">
-                            <div id="earnings"></div>
-                        </div>
-                    </div>
+                                <tr>
+                                    <td> <?php echo $nomor++; ?></td>
+                                    <td> <?php echo $d['username']; ?></td>
+                                    <td> <?php echo $d['password']; ?></td>
+                                    <td>
+                                        <form action="usersedit.php" method="post">
+                                            <input type="hidden" name="edit_id" value="<?php echo $d['id']; ?>">
+                                            <button type="submit" name="edit_btn" class="btn btn-warning"> EDIT</button>
+                                        </form>
+                                        <form action="process/code.php" method="post">
+                                            <input type="hidden" name="delete_id" value="<?php echo $d['id']; ?>">
+                                            <button type="submit" name="delete_btn" class="btn btn-danger"> DELETE</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            <?php
+                            }
+                            ?>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
@@ -110,5 +120,4 @@ if ($_SESSION['status'] != "login") {
     <!-- End Container fluid  -->
     <!-- ============================================================== -->
     <!-- ============================================================== -->
-
     <?php include "include/footer.php"; ?>

@@ -7,11 +7,11 @@
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="noindex,nofollow">
-    <title>Sistem Rekapan Data Laundry</title>
+    <title>Sistem CRUD Maya Salon</title>
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="mayalogosmall.png">
+    <link rel="shortcut icon" type="image/png" href="../../assets/images/favicon.png">
     <!-- Custom CSS -->
-    <link href="./dist/css/style.css" rel="stylesheet">
+    <link href="../../dist/css/style.min.css" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -53,9 +53,9 @@
                             <b class="logo-icon">
                                 <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
                                 <!-- Dark Logo icon -->
-                                <img src="mayalogosmall.png" alt="homepage" class="dark-logo" />
+                                <img src="../../assets/images/logo-icon.png" alt="homepage" class="dark-logo" />
                                 <!-- Light Logo icon -->
-                                <img src="mayalogosmall.png" alt="homepage" class="light-logo" />
+                                <img src="../../assets/images/logo-light-icon.png" alt="homepage" class="light-logo" />
                             </b>
                             <!--End Logo icon -->
                         </a>
@@ -94,6 +94,9 @@
                     <!-- Right side toggle and nav items -->
                     <!-- ============================================================== -->
                     <ul class="navbar-nav float-end">
+                        <li style="padding-top:22px;">
+                            <?php echo $_SESSION['username']; ?>
+                        </li>
                         <!-- ============================================================== -->
                         <!-- User profile and search -->
                         <!-- ============================================================== -->
@@ -101,6 +104,7 @@
                             <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <img src="../../assets/images/users/1.jpg" alt="user" class="rounded-circle" width="31">
                             </a>
+
                             <ul class="dropdown-menu dropdown-menu-end user-dd animated" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="logout.php"><i class="ti-user me-1 ms-1"></i>
                                     Logout</a>

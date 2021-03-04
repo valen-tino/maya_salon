@@ -1,4 +1,5 @@
 <?php
+include 'koneksi.php';
 session_start();
 if ($_SESSION['status'] != "login") {
     header("location:../index.php?pesan=belum_login");
@@ -6,7 +7,6 @@ if ($_SESSION['status'] != "login") {
 ?>
 <?php include "include/header.php"; ?>
 <?php include "include/navbar.php"; ?>
-
 <!-- ============================================================== -->
 <!-- Page wrapper  -->
 <!-- ============================================================== -->
@@ -17,7 +17,7 @@ if ($_SESSION['status'] != "login") {
     <div class="page-breadcrumb">
         <div class="row">
             <div class="col-5 align-self-center">
-                <h5 class="page-title">Halaman Utama</h5>
+                <h5 class="page-title">Edit User</h5>
             </div>
             <div class="col-7 align-self-center">
                 <div class="d-flex align-items-center justify-content-end">
@@ -26,7 +26,7 @@ if ($_SESSION['status'] != "login") {
                             <li class="breadcrumb-item">
                                 <a href="#">Home</a>
                             </li>
-                            <li class="breadcrumb-item active" aria-current="page">Halaman Utama</li>
+                            <li class="breadcrumb-item active" aria-current="page">Edit User</li>
                         </ol>
                     </nav>
                 </div>
@@ -43,58 +43,55 @@ if ($_SESSION['status'] != "login") {
         <!-- ============================================================== -->
         <!-- Start Page Content -->
         <!-- ============================================================== -->
-        <div class="row">
-            <div class="col-12">
-                <h1>Selamat Datang, <?php echo $_SESSION['username']; ?>!</h1>
-            </div>
-        </div>
-        <br>
-        <div class="row">
-            <div class="col-12">
-                <div class="card">
-                    <div class="card-body">
-                        <h3 class="font-light" id="time"></h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-6">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title mb-1">Total Staf</h5><br>
-                        <?php
-                        include 'koneksi.php';
-                        $datatk = mysqli_query($con, "SELECT * FROM tentangkami");
 
-                        // menghitung data barang
-                        $totaltk = mysqli_num_rows($datatk);
-                        ?>
-                        <h3 class="font-light"><?php echo $totaltk; ?></h3>
-                        <div class="mt-3 text-center">
-                            <div id="earnings"></div>
+
+        <?php
+        if (isset($_POST['edit_btn'])) {
+            $id = $_POST['edit_id'];
+
+            $query = "SELECT * FROM tentangkami WHERE id='$id' ";
+            $query_run = mysqli_query($con, $query);
+
+            foreach ($query_run as $d) { ?>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="card card-body">
+                            <h4 class="card-title">Gambar Data</h4>
+                            <center>
+                                <img src="images/<?php echo $d['gambar'] ?>" width="200" height="300">
+                            </center>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card card-body">
+                            <h4 class="card-title">Edit Data</h4>
+                            <form class="form-horizontal mt-4" action="process/code.php" method="post" enctype="multipart/form-data">
+                                <div class="form-group">
+                                    <input type="hidden" name="id" value="<?php echo $d['id'] ?>">
+                                    <label for="nama" class="col-form-label">Nama</label>
+                                    <input type="text" name="nama_edit_tk" class="form-control" value="<?php echo $d['nama'] ?>">
+                                </div>
+                                <div class="form-group">
+                                    <label for="jabatan" class="col-form-label">Jabatan</label>
+                                    <input type="text" name="jabatan_edit_tk" class="form-control" value="<?php echo $d['jabatan'] ?>">
+                                </div>
+                                <div class="form-group">
+                                    <label for="gambar" class="col-form-label">Gambar</label>
+                                    <input type="file" name="upload_gambar_edit_tk" id="upload_gambar_edit_tk" class="form-control" required value="<?php echo $d['jabatan'] ?>">
+                                </div>
+                                <div class=" modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <input type="submit" value="Edit Data" name="tk_updatebtn" class="btn btn-primary">
+                                </div>
+                            </form>
+
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-6">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title mb-1">Total User</h5><br>
-                        <?php
-                        include 'koneksi.php';
-                        $data_barang = mysqli_query($con, "SELECT * FROM user");
-                        // menghitung data barang
-                        $totaluser = mysqli_num_rows($data_barang);
-                        ?>
-                        <h3 class="font-light"><?php echo $totaluser; ?></h3>
-                        <div class="mt-3 text-center">
-                            <div id="earnings"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <?php
+            }
+        }
+        ?>
         <!-- ============================================================== -->
         <!-- End PAge Content -->
         <!-- ============================================================== -->
@@ -110,5 +107,4 @@ if ($_SESSION['status'] != "login") {
     <!-- End Container fluid  -->
     <!-- ============================================================== -->
     <!-- ============================================================== -->
-
     <?php include "include/footer.php"; ?>

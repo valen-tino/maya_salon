@@ -14,21 +14,27 @@
                      </a>
                  </li>
                  <li class="sidebar-item">
-                     <a class="sidebar-link waves-effect waves-dark sidebar-link" href="tabel.php" aria-expanded="false">
+                     <a class="sidebar-link waves-effect waves-dark sidebar-link" href="tentangkami.php" aria-expanded="false">
                          <i class="mdi mdi-table"></i>
                          <span class="hide-menu">Tentang Kami</span>
                      </a>
                  </li>
                  <li class="sidebar-item">
-                     <a class="sidebar-link waves-effect waves-dark sidebar-link" href="#" aria-expanded="false">
+                     <a class="sidebar-link waves-effect waves-dark sidebar-link" href="tabel.php" aria-expanded="false">
                          <i class="mdi mdi-table"></i>
                          <span class="hide-menu">Layanan Kami</span>
                      </a>
                  </li>
                  <li class="sidebar-item">
-                     <a class="sidebar-link waves-effect waves-dark sidebar-link" href="#" aria-expanded="false">
+                     <a class="sidebar-link waves-effect waves-dark sidebar-link" href="tabel.php" aria-expanded="false">
                          <i class="mdi mdi-table"></i>
                          <span class="hide-menu">Galeri</span>
+                     </a>
+                 </li>
+                 <li class="sidebar-item">
+                     <a class="sidebar-link waves-effect waves-dark sidebar-link" href="user.php" aria-expanded="false">
+                         <i class="mdi mdi-table"></i>
+                         <span class="hide-menu">User</span>
                      </a>
                  </li>
              </ul>
