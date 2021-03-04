@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 04, 2021 at 07:01 AM
+-- Generation Time: Mar 04, 2021 at 09:51 AM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.2
 
@@ -24,6 +24,25 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `layanan`
+--
+
+CREATE TABLE `layanan` (
+  `id` int(11) NOT NULL,
+  `judul` varchar(255) NOT NULL,
+  `details` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `layanan`
+--
+
+INSERT INTO `layanan` (`id`, `judul`, `details`) VALUES
+(1, 'Cutting', 'blablabla');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tentangkami`
 --
 
@@ -39,8 +58,8 @@ CREATE TABLE `tentangkami` (
 --
 
 INSERT INTO `tentangkami` (`id`, `nama`, `jabatan`, `gambar`) VALUES
-(4, 'Valentino', 'CV', '625329439_Black_Simple_Motors_Automotive_logo-removebg-preview (1).png'),
-(5, 'Cea', 'aflkj', '455114416_me.png');
+(12, 'Maria Fatimah Maya', 'Pemilik', '124527176_testpic1.jpg'),
+(13, 'Vinsensius Jehaut', 'Pemilik', '1161729317_depan.jpeg');
 
 -- --------------------------------------------------------
 
@@ -67,6 +86,12 @@ INSERT INTO `user` (`id`, `username`, `password`) VALUES
 --
 
 --
+-- Indexes for table `layanan`
+--
+ALTER TABLE `layanan`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `tentangkami`
 --
 ALTER TABLE `tentangkami`
@@ -83,10 +108,16 @@ ALTER TABLE `user`
 --
 
 --
+-- AUTO_INCREMENT for table `layanan`
+--
+ALTER TABLE `layanan`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `tentangkami`
 --
 ALTER TABLE `tentangkami`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `user`
