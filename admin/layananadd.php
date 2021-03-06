@@ -49,12 +49,14 @@ if ($_SESSION['status'] != "login") {
                     <form class="form-horizontal mt-4" action="process/code.php" method="post" enctype="multipart/form-data">
                         <div class="form-group">
                             <label for="username" class="col-form-label">Judul Layanan</label>
-                            <input type="text" name="nama_ly" class="form-control">
+                            <input type="text" name="judul_ly" class="form-control">
                         </div>
                         <div class="form-group">
                             <label for="username" class="col-form-label">Deskripsi</label>
-                            <textarea type="text" name="jabatan_ly" class="form-control" rows="10"></textarea>
+                            <p>Ketik <code>&lt;br&gt;</code> di tiap ahkir kalimat untuk buat baris baru</p>
+                            <textarea type="text" name="desc_ly" class="form-control" rows="10"></textarea>
                         </div>
+
                         <div class="modal-footer">
                             <input type="reset" class="btn btn-secondary" value="Reset" href="layanankami.php" data-dismiss="modal">
                             <input type="submit" value="Tambah Data" name="tambahdataly" class="btn btn-primary">

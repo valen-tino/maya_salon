@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html dir="ltr" lang="en">
+<html lang="en">
 
 <head>
     <meta charset="utf-8">
@@ -9,9 +9,10 @@
     <meta name="robots" content="noindex,nofollow">
     <title>Sistem CRUD Maya Salon</title>
     <!-- Favicon icon -->
-    <link rel="shortcut icon" type="image/png" href="../../assets/images/favicon.png">
+    <link rel="shortcut icon" type="image/png" href="../admin/assets/images/favicon.png">
     <!-- Custom CSS -->
-    <link href="../../dist/css/style.min.css" rel="stylesheet">
+    <link href="../admin/dist/css/style.min.css" rel="stylesheet">
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -53,9 +54,9 @@
                             <b class="logo-icon">
                                 <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
                                 <!-- Dark Logo icon -->
-                                <img src="../../assets/images/logo-icon.png" alt="homepage" class="dark-logo" />
+                                <img src="../admin/assets/images/logo-icon.png" style="height:40px !important;" alt="homepage" class="dark-logo" />
                                 <!-- Light Logo icon -->
-                                <img src="../../assets/images/logo-light-icon.png" alt="homepage" class="light-logo" />
+                                <img src="../admin/assets/images/logo-light-icon.png" style="height:40px !important;  alt="homepage" class="light-logo" />
                             </b>
                             <!--End Logo icon -->
                         </a>
@@ -102,9 +103,8 @@
                         <!-- ============================================================== -->
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img src="../../assets/images/users/1.jpg" alt="user" class="rounded-circle" width="31">
+                                <img src="../admin/assets/images/user.png" alt="user" class="rounded-circle" width="31">
                             </a>
-
                             <ul class="dropdown-menu dropdown-menu-end user-dd animated" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="logout.php"><i class="ti-user me-1 ms-1"></i>
                                     Logout</a>

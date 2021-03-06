@@ -62,11 +62,12 @@ if ($_SESSION['status'] != "login") {
                 <div class="card-body">
                     <h4 class="card-title">Layanan-layanan</h4>
                 </div>
-                <div class="table-responsive">
+                
+                <div class="table-responsive" style=" margin-left:15px; margin-right:15px;">
                     <table class="table table-bordered">
                         <thead>
                             <tr>
-                                <th scope="col">Id</th>
+                                <th scope="col" width="3%">No</th>
                                 <th scope="col">Judul</th>
                                 <th scope="col">Details</th>
                                 <th scope="col">Actions</th>
@@ -75,8 +76,21 @@ if ($_SESSION['status'] != "login") {
                         <tbody>
                             <?php
                             include 'koneksi.php';
+
+                            if(isset($_GET['page'])){
+                                $page = $_GET['page'];
+                            }
+                            else{
+                                $page = 1;
+                            }
+                            $num_per_page = 04;
+                            $start_from = ($page-1)*04;
+
+
                             $nomor = 1;
-                            $data = mysqli_query($con, "select * from layanan");
+                            $data = mysqli_query($con, "select * from layanan limit $start_from, $num_per_page");
+                            
+
                             while ($d = mysqli_fetch_array($data)) {
                             ?>
 
@@ -85,20 +99,38 @@ if ($_SESSION['status'] != "login") {
                                     <td> <?php echo $d['judul']; ?></td>
                                     <td> <?php echo $d['details']; ?></td>
                                     <td>
-                                        <form action="layananedit.php" method="post">
+                                        <form action="layananedit.php" method="post" class="d-inline">
                                             <input type="hidden" name="editly_id" value="<?php echo $d['id']; ?>">
-                                            <button type="submit" name="editly_btn" class="btn btn-warning"> EDIT</button>
-                                        </form>
-                                        <form action="process/code.php" method="post">
+                                            <button type="submit" name="editly_btn" class="btn btn-warning" > <i class="mdi mdi-grease-pencil"></i> EDIT</button>
+                                        </form>&nbsp
+                                        <form action="process/code.php" method="post" class="d-inline">
                                             <input type="hidden" name="deletely_id" value="<?php echo $d['id']; ?>">
-                                            <button type="submit" name="deletely_btn" class="btn btn-danger" style="color:white;"> DELETE</button>
+                                            <button type="submit" name="deletely_btn" class="btn btn-danger" style="color:white;"><i class="mdi mdi-delete-forever"></i> DELETE</button>
                                         </form>
                                     </td>
                                 </tr>
                             <?php
                             }
                             ?>
-                        </tbody>
+                            <div style='margin-bottom:10px;'>
+                                <a class="breadcrumb-item active" aria-current="page" style="margin-left:5px;">Halaman</a><br>
+                                <?php
+                                
+                                $pr_query = "select * from layanan";
+                                $pr_result=mysqli_query($con,$pr_query);
+                                $totalrecord=mysqli_num_rows($pr_result);
+                                // echo $totalrecord;
+                                $totalpages = ceil($totalrecord/$num_per_page);
+                                // echo $totalpages;
+
+                                for($i=1; $i<=$totalpages;$i++){
+                                    echo "<a href='layanankami.php?page=".$i."' class='btn btn-primary' style='margin-left:5px;'>$i</a>"; 
+                                
+                                }
+
+                                ?>
+                            </div>
+                        </tbody>    
                     </table>
                 </div>
             </div>

@@ -53,7 +53,7 @@ if ($_SESSION['status'] != "login") {
                 <div class="card">
                     <div class="card-body">
                         <div class="col-sm-12 d-flex align-items- justify-content-end">
-                            <a role="button" class="btn btn-primary" href="usersadd.php"> + Tambah Data Baru</a>
+                            <a role="button" class="btn btn-primary" href="usersadd.php"><i class="mdi mdi-account-multiple-plus"></i> Tambah Data Baru</a>
                         </div>
                     </div>
                 </div>
@@ -62,13 +62,13 @@ if ($_SESSION['status'] != "login") {
         <div class=" col-12">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">Data Rekapan</h4>
+                    <h4 class="card-title">User</h4>
                 </div>
-                <div class="table-responsive">
+                <div class="table-responsive" style=" margin-left:15px; margin-right:15px;">
                     <table class="table table-bordered">
-                        <thead>
+                        <thead class="thead-light">
                             <tr>
-                                <th scope="col">id</th>
+                                <th scope="col" width="3%">id</th>
                                 <th scope="col">Username</th>
                                 <th scope="col">Password</th>
                                 <th scope="col">Actions</th>
@@ -87,13 +87,13 @@ if ($_SESSION['status'] != "login") {
                                     <td> <?php echo $d['username']; ?></td>
                                     <td> <?php echo $d['password']; ?></td>
                                     <td>
-                                        <form action="usersedit.php" method="post">
+                                        <form action="usersedit.php" method="post" class="d-inline">
                                             <input type="hidden" name="edit_id" value="<?php echo $d['id']; ?>">
-                                            <button type="submit" name="edit_btn" class="btn btn-warning"> EDIT</button>
-                                        </form>
-                                        <form action="process/code.php" method="post">
+                                            <button type="submit" name="edit_btn" class="btn btn-warning" ><i class="mdi mdi-grease-pencil"></i> EDIT</button>
+                                        </form>&nbsp
+                                        <form action="process/code.php" method="post" class="d-inline">
                                             <input type="hidden" name="delete_id" value="<?php echo $d['id']; ?>">
-                                            <button type="submit" name="delete_btn" class="btn btn-danger" style="color:white;"> DELETE</button>
+                                            <button type="submit" name="delete_btn" class="btn btn-danger" style="color:white;"> <i class="mdi mdi-account-remove"></i></i>  DELETE</button>
                                         </form>
                                     </td>
                                 </tr>

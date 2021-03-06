@@ -58,8 +58,9 @@ if ($_SESSION['status'] != "login") {
                         <div class="card card-body">
                             <h4 class="card-title">Gambar Data</h4>
                             <center>
-                                <img src="images/<?php echo $d['gambar'] ?>" width="200" height="300">
+                                <img src="tentangkami/<?php echo $d['gambar'] ?>" width="200" height="329">
                             </center>
+                            <br>
                         </div>
                     </div>
                     <div class="col-md-8">

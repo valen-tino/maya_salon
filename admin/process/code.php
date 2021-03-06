@@ -68,8 +68,8 @@ if (isset($_POST['tambahdatatk'])) {
     } else {
         if ($ukuran < 1044070) {
             $xx = $rand . '_' . $filename;
-            move_uploaded_file($_FILES['upload_gambar_tk']['tmp_name'], '../images/' . $rand . '_' . $filename);
-            mysqli_query($con, "INSERT INTO tentangkami VALUES(NULL,'$nama','$jabatan','$xx')");
+            move_uploaded_file($_FILES['upload_gambar_tk']['tmp_name'], '../tentangkami/' . $rand . '_' . $filename);
+            mysqli_query($con, "INSERT INTO tentangkami VALUES('','$nama','$jabatan','$xx')");
             echo '<script>alert("Berhasil menambah data kartu."); document.location="../tentangkami.php";</script>';
         } else {
             echo '<script>alert("Ukuran Gambar Terlalu Besar"); document.location="../tentangkami.php";</script>';;
@@ -95,10 +95,9 @@ if (isset($_POST['tk_updatebtn'])) {
         } else {
             if ($ukuran < 1044070) {
                 $xx = $rand . '_' . $filename;
-                move_uploaded_file($_FILES['upload_gambar_edit_tk']['tmp_name'], '../images/' . $rand . '_' . $filename);
+                move_uploaded_file($_FILES['upload_gambar_edit_tk']['tmp_name'], '../tentangkami/' . $rand . '_' . $filename);
                 $sql = "UPDATE tentangkami SET nama='" . $nama . "',jabatan='" . $jabatan . "',gambar='" . $xx . "' WHERE id=" . $id;
                 mysqli_query($con, $sql);
-
                 echo '<script>alert("Berhasil mengedit data kartu."); document.location="../tentangkami.php";</script>';
             } else {
                 echo '<script>alert("Ukuran Gambar Terlalu Besar"); document.location="../tentangkami.php";</script>';;
@@ -113,6 +112,40 @@ if (isset($_POST['tk_updatebtn'])) {
     }
 }
 
+if (isset($_POST['edit_tkae'])) {
+
+    $id_tkae = $_POST['id_tkae'];
+    $desc = $_POST['desc_tkae'];
+
+    if ($_FILES['gambar_tkae']['error'] == 0) {
+        $rand = rand();
+        $ekstensi =  array('png', 'jpg', 'jpeg');
+        $filename = $_FILES['gambar_tkae']['name'];
+        $ukuran = $_FILES['gambar_tkae']['size'];
+        $ext = pathinfo($filename, PATHINFO_EXTENSION);
+
+        if (!in_array($ext, $ekstensi)) {
+            header("location:../tentangkami.php?alert=gagal_ekstensi");
+        } else {
+            if ($ukuran < 1044070) {
+                $xx = $rand . '_' . $filename;
+                move_uploaded_file($_FILES['gambar_tkae']['tmp_name'], '../tentangkami/' . $rand . '_' . $filename);
+                $sql = "UPDATE tentangkamiawal SET details= '".$desc."',gambar='" . $xx . "' WHERE id=" . $id_tkae;
+                mysqli_query($con, $sql);
+                echo '<script>alert("Berhasil mengedit data kartu."); document.location="../tentangkami.php";</script>';
+            } else {
+                echo '<script>alert("Ukuran Gambar Terlalu Besar"); document.location="../tentangkami.php";</script>';;
+            }
+        }
+    } else {
+
+        $sql = "UPDATE tentangkamiawal SET details= '".$desc."' WHERE id=" . $id_tkae;
+        mysqli_query($con, $sql);
+
+        echo '<script>alert("Berhasil mengedit data kartu."); document.location="../tentangkami.php";</script>';
+    }
+}
+
 if (isset($_POST['delete_tk_btn'])) {
 
     $id = $_POST['delete_tk_id'];
@@ -121,7 +154,7 @@ if (isset($_POST['delete_tk_btn'])) {
     $qr = mysqli_query($con, $sql);
 
     $data = mysqli_fetch_assoc($qr);
-    unlink("E:/Valentino.Y.J_SMKTI/xampp/htdocs/maya_salon/admin/images/" . $data['gambar']);
+    unlink("../tentangkami/" . $data['gambar']);
 
     $query = "DELETE FROM tentangkami WHERE id='$id' ";
     $query_run = mysqli_query($con, $query);
@@ -136,11 +169,11 @@ if (isset($_POST['delete_tk_btn'])) {
 
 /* Layanan Kami*/
 if (isset($_POST['tambahdataly'])) {
-    $nama = $_POST['nama_ly'];
-    $jabatan = $_POST['jabatan_ly'];
+    $nama = $_POST['judul_ly'];
+    $desc = $_POST['desc_ly'];
 
     // menginput data ke database
-    $sql = "INSERT INTO layanan VALUES('', '$nama','$jabatan')";
+    $sql = "INSERT INTO layanan VALUES('', '$nama','$desc')";
     $hasil = mysqli_query($con, $sql);
 
     if ($hasil) {
@@ -150,18 +183,18 @@ if (isset($_POST['tambahdataly'])) {
     }
 }
 
-if (isset($_POST['editdataly'])) {
-    $id = $_POST['id'];
+if (isset($_POST['edit_datalayanan'])) {
+    $id = $_POST['id_editlayanan'];
     $judul = $_POST['nama_edit_ly'];
     $desc = $_POST['jabatan_edit_ly'];
 
-    $query = "UPDATE user SET judul='$judul', details='$desc' WHERE id='$id' ";
+    $query = "UPDATE layanan SET judul='$judul', details='$desc' WHERE id='$id' ";
     $query_run = mysqli_query($con, $query);
 
     if ($query_run) {
-        echo '<script>alert("Berhasil mengupdate data."); document.location="../user.php";</script>';
+        echo '<script>alert("Berhasil mengupdate data."); document.location="../layanankami.php";</script>';
     } else {
-        echo '<script>alert("Gagal menghapus data."); document.location="../user.php";</script>';
+        echo '<script>alert("Gagal menghapus data."); document.location="../layanankami.php";</script>';
     }
 }
 
@@ -177,3 +210,95 @@ if (isset($_POST['deletely_btn'])) {
         echo '<script>alert("Gagal menghapus data."); document.location="../layanankami.php";</script>';
     }
 }
+
+if (isset($_POST['editdataly'])) {
+
+    $id_tk = $_POST['id_tkae'];
+    $desc = $_POST['desc_tkae'];
+
+    if ($_FILES['upload_gambar_edit_tk']['error'] == 0) {
+        $rand = rand();
+        $ekstensi =  array('png', 'jpg', 'jpeg');
+        $filename = $_FILES['gambar_tkae']['name'];
+        $ukuran = $_FILES['gambar_tkae']['size'];
+        $ext = pathinfo($filename, PATHINFO_EXTENSION);
+
+        if (!in_array($ext, $ekstensi)) {
+            header("location:../tentangkami.php?alert=gagal_ekstensi");
+        } else {
+            if ($ukuran < 1044070) {
+                $xx = $rand . '_' . $filename;
+                move_uploaded_file($_FILES['gambar_tkae']['tmp_name'], '../tentangkami/' . $rand . '_' . $filename);
+                $sql = "UPDATE tentangkamiawal SET details ='" . $desc . "',gambar='" . $xx . "' WHERE id=" . $id_tk;
+                mysqli_query($con, $sql);
+                echo '<script>alert("Berhasil mengedit data kartu."); document.location="../tentangkami.php";</script>';
+            } else {
+                echo '<script>alert("Ukuran Gambar Terlalu Besar"); document.location="../tentangkami.php";</script>';;
+            }
+        }
+    } else {
+
+        $sql = "UPDATE tentangkami SET details ='" . $desc . "' WHERE id=" . $id_tk;
+        mysqli_query($con, $sql);
+
+        echo '<script>alert("Berhasil mengedit data kartu."); document.location="../tentangkami.php";</script>';
+    }
+}
+
+/* Galeri */
+
+if (isset($_POST['tambahdatagaleri'])) {
+    $rand = rand();
+    $ekstensi =  array('png', 'jpg', 'jpeg');
+    $filename = $_FILES['upload_gambar_galeri']['name'];
+    $ukuran = $_FILES['upload_gambar_galeri']['size'];
+    $ext = pathinfo($filename, PATHINFO_EXTENSION);
+
+    if (!in_array($ext, $ekstensi)) {
+        header("location:galeri.php?alert=gagal_ekstensi");
+    } else {
+        if ($ukuran < 1044070) {
+            $g = $rand . '_' . $filename;
+            move_uploaded_file($_FILES['upload_gambar_galeri']['tmp_name'], '../galeri/' . $rand . '_' . $filename);
+            mysqli_query($con, "INSERT INTO galeri VALUES('','$g','1')");
+            echo '<script>alert("Berhasil menambah gambar"); document.location="../galeri.php";</script>';
+        } else {
+            echo '<script>alert("Ukuran Gambar Terlalu Besar"); document.location="../galeri.php";</script>';;
+        }
+    }
+}
+
+if (isset($_POST['deletegl_btn'])) {
+    $id = $_POST['deletegl_id'];
+
+    $sql = "SELECT * FROM galeri WHERE id='$id'";
+    $qr = mysqli_query($con, $sql);
+
+    $data = mysqli_fetch_assoc($qr);
+    unlink("../galeri/" . $data['gambar']);
+
+    $query = "DELETE FROM galeri WHERE id='$id' ";
+    $query_run = mysqli_query($con, $query);
+
+    if ($query_run) {
+        echo '<script>alert("Berhasil menghapus data."); document.location="../galeri.php";</script>';
+    } else {
+        echo '<script>alert("Gagal menghapus data."); document.location="../galeri.php";</script>';
+    }
+}
+
+/* Hubungi Kami */
+if (isset($_POST['deletehb_btn'])) {
+    $id = $_POST['deletehb_id'];
+
+    $query = "DELETE FROM email WHERE id='$id' ";
+    $query_run = mysqli_query($con, $query);
+
+    if ($query_run) {
+        echo '<script>alert("Berhasil menghapus data."); document.location="../hubungikami.php";</script>';
+    } else {
+        echo '<script>alert("Gagal menghapus data."); document.location="../hubungikami.php";</script>';
+    }
+}
+
+

@@ -59,17 +59,18 @@ if ($_SESSION['status'] != "login") {
                             <h4 class="card-title">Edit Kartu Layanan</h4>
                             <form class="form-horizontal mt-4" action="process/code.php" method="post">
                                 <div class="form-group">
-                                    <input type="hidden" name="id" value="<?php echo $d['id'] ?>">
+                                    <input type="hidden" name="id_editlayanan" value="<?php echo $d['id'] ?>">
                                     <label for="nama_edit_ly" class="col-form-label">Judul Layanan</label>
                                     <input type="text" name="nama_edit_ly" class="form-control" value="<?php echo $d['judul'] ?>">
                                 </div>
                                 <div class="form-group">
                                     <label for="jabatan_edit_ly" class="col-form-label">Deskripsi</label>
-                                    <textarea type="text" name="jabatan_edit_ly" class="form-control" rows="10"><?php echo $d['details'] ?></textarea>
+                                        <p>Ketik <code>&lt;br&gt;</code> di tiap ahkir baris untuk buat baris baru</p>
+                                        <textarea type="text" name="jabatan_edit_ly" id="jabatan_edit_ly" class="form-control" rows="10"><?php echo $d['details'] ?></textarea>
                                 </div>
                                 <div class="modal-footer">
                                     <input type="reset" class="btn btn-secondary" value="Reset" href="layanankami.php" data-dismiss="modal">
-                                    <input type="submit" value="Tambah Data" name="editdataly" class="btn btn-primary">
+                                    <input type="submit" value="Edit Data" name="edit_datalayanan" class="btn btn-primary">
                                 </div>
                             </form>
 
